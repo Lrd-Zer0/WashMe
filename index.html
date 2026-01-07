@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+    <html lang="it">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <title>WashMe</title>
+        <link rel="stylesheet" href="template/css.css">
+    </head>
+
+    <body>
+        <h1><b><center>WashMe</center></b></h1>
+        <div class="immagini">
+
+    <div class="card">
+        <img src="images/shutze.png" class="foto">
+        <p id="conta1">0</p>
+        <p id="frase1">Pulito</p>
+        <button class="btn" onclick="mostra(1)">Premi</button>
+    </div>
+
+    <div class="card">
+        <img src="images/corteiz.png" class="foto">
+        <p id="conta2">0</p>
+        <p id="frase2">Pulito</p>
+        <button class="btn" onclick="mostra(2)">Premi</button>
+    </div>
+
+    <div class="card">
+        <img src="images/vertbrae.png" class="foto">
+        <p id="conta3">0</p>
+        <p id="frase3">Pulito</p>
+        <button class="btn" onclick="mostra(3)">Premi</button>
+    </div>
+
+    <div class="card">
+        <img src="images/jeans3.png" class="foto">
+        <p id="conta4">0</p>
+        <p id="frase4">Pulito</p>
+        <button class="btn" onclick="mostra(4)">Premi</button>
+    </div>
+
+    <div class="card">
+        <img src="images/felpa2.png" class="foto">
+        <p id="conta5">0</p>
+        <p id="frase5">Pulito</p>
+        <button class="btn" onclick="mostra(5)">Premi</button>
+    </div>
+
+    <div class="card">
+        <img src="images/hellstar.png" class="foto">
+        <p id="conta6">0</p>
+        <p id="frase6">Pulito</p>
+        <button class="btn" onclick="mostra(6)">Premi</button>
+    </div>
+
+    <div class="card">
+        <img src="images/jeans2.png" class="foto">
+        <p id="conta7">0</p>
+        <p id="frase7">Pulito</p>
+        <button class="btn" onclick="mostra(7)">Premi</button>
+    </div>
+
+    <div class="card">
+        <img src="images/guns&roses.png" class="foto">
+        <p id="conta8">0</p>
+        <p id="frase8">Pulito</p>
+        <button class="btn" onclick="mostra(8)">Premi</button>
+    </div>
+
+    <div class="card">
+        <img src="images/revenge.png" class="foto">
+        <p id="conta9">0</p>
+        <p id="frase9">Pulito</p>
+        <button class="btn" onclick="mostra(9)">Premi</button>
+    </div>
+
+    <div class="card">
+        <img src="images/jeans4.png" class="foto">
+        <p id="conta10">0</p>
+        <p id="frase10">Pulito</p>
+        <button class="btn" onclick="mostra(10)">Premi</button>
+    </div>
+
+    <div class="card">
+        <img src="images/felpa1.png" class="foto">
+        <p id="conta11">0</p>
+        <p id="frase11">Pulito</p>
+        <button class="btn" onclick="mostra(11)">Premi</button>
+    </div>
+
+         <div class="card">
+        <img src="images/poloNera.png" class="foto">
+        <p id="conta12">0</p>
+        <p id="frase12">Pulito</p>
+        <button class="btn" onclick="mostra(12)">Premi</button>
+    </div>
+
+    <div class="card">
+        <img src="images/jeans1.png" class="foto">
+        <p id="conta13">0</p>
+        <p id="frase13">Pulito</p>
+        <button class="btn" onclick="mostra(13)">Premi</button>
+
+    </div>
+
+    <div class="card">
+        <img src="images/felpa3.png" class="foto">
+        <p id="conta14">0</p>
+        <p id="frase14">Pulito</p>
+        <button class="btn" onclick="mostra(14)">Premi</button>
+
+    </div>
+
+   <div class="card">
+        <img src="images/poloBianca.png" class="foto">
+        <p id="conta15">0</p>
+        <p id="frase15">Pulito</p>
+        <button class="btn" onclick="mostra(15)">Premi</button>
+
+    </div>   
+    
+    
+    
+    <script>
+    const NUM_CAPI = 15;
+
+    const frasi = [
+        "Pulito",
+        "Usato poco",
+        "Usato",
+        "Da lavare"
+    ];
+
+    function mostra(n) {
+        const key = "washme_" + n;
+
+        let valore = localStorage.getItem(key);
+        valore = valore !== null ? parseInt(valore) : 0;
+
+        valore++;
+        if (valore >= frasi.length) valore = 0;
+
+        localStorage.setItem(key, valore);
+
+        document.getElementById("conta" + n).innerText = valore;
+        document.getElementById("frase" + n).innerText = frasi[valore];
+    }
+
+    // 🔁 Ripristina i dati quando apri il sito
+    window.onload = function () {
+        for (let i = 1; i <= NUM_CAPI; i++) {
+            const key = "washme_" + i;
+            let valore = localStorage.getItem(key);
+            valore = valore !== null ? parseInt(valore) : 0;
+
+            document.getElementById("conta" + i).innerText = valore;
+            document.getElementById("frase" + i).innerText = frasi[valore];
+        }
+    };
+</script>
+
+
+    </body>
+
+</html>
